@@ -1,0 +1,285 @@
+ *{
+ 	padding:0; margin:0;
+     font-family: 'Helvetica Neue', Helvetica, sans-serif;
+
+ }
+
+ body{
+  
+
+ }
+ /*iphone5 size is 640*1152*/
+ .app{ 
+  width: 320px;
+  height: 576px;
+  overflow: hidden;
+  position: relative;
+  margin: 0 auto;
+  background:#e5e5e5;
+}
+
+ header{
+ 	width: 100%;
+ 	height: 64px;
+  
+ }
+
+header h1, .shopListContainer> h1{
+   font-family: 'Helvetica Neue', Helvetica, sans-serif;
+    z-index: 100;
+    position: relative;
+    padding: 6px 0px;
+    margin: 0;
+    font-size: 18px;
+    line-height: 32px;
+    font-weight: 400;
+    text-align: center;
+    color: #fff;
+    background: #87BA0D;
+    /* css3 extras */
+    text-shadow: 0 1px 1px rgba(0,0,0,0.2);
+    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.2);
+       -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.2);
+            box-shadow: 0 1px 1px rgba(0,0,0,0.2);
+}
+
+ header img{
+ 	width: 100%;
+  display: block;
+ }
+
+.content{ 
+  width: 100%;
+}
+
+.carouselContainer{
+ width: 100%;
+ height: 210px;
+ position: relative;
+ perspective: 1000px;
+ overflow: hidden;
+ transition: all 1s;
+}
+
+#carousel {
+ width: 210px;
+ height: 210px;
+ position: absolute;
+ left: 50px;
+ transform-style: preserve-3d;
+ transition: all 1s;
+ transform: translateZ(-288px);
+ z-index: 1;
+}
+
+#carousel figure {
+  display: block;
+  position: absolute;
+  width: 190px;
+  height:190px;
+  left: 10px;
+  top: 10px;
+  /*hide photos in the back side*/
+  backface-visibility: hidden;
+  border-radius: 5px;
+  overflow: hidden;
+}
+/*haven't used the back feature but might useful later
+Credit:Intro to CSS 3D transforms by David DeSandro*/
+#carousel figure div.front{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+}
+#carousel figure div.back{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+}
+
+#carousel figure:nth-child(1) div.front{
+  background-image: url(image/dish-01.jpg);
+}
+#carousel figure:nth-child(2) div.front{
+  background-image: url(image/dish-02.jpg);
+}
+#carousel figure:nth-child(3) div.front{
+  background-image: url(image/dish-03.jpg);
+}
+#carousel figure:nth-child(4) div.front{
+  background-image: url(image/food01.png);
+}
+#carousel figure:nth-child(5) div.front{
+  background-image: url(image/food02.jpg);
+}
+#carousel figure:nth-child(6) div.front{
+  background-image: url(image/food01.png);
+}
+#carousel figure:nth-child(7) div.front{
+  background-image: url(image/food02.jpg);
+}
+#carousel figure:nth-child(8) div.front{
+  background-image: url(image/food01.png);
+}
+#carousel figure:nth-child(9) div.front{
+  background-image: url(image/food01.png);
+
+}
+#carousel figure:nth-child(1) { transform: rotateY(   0deg ) translateZ( 288px ); }
+#carousel figure:nth-child(2) { transform: rotateY(  40deg ) translateZ( 288px ); }
+#carousel figure:nth-child(3) { transform: rotateY(  80deg ) translateZ( 288px ); }
+#carousel figure:nth-child(4) { transform: rotateY( 120deg ) translateZ( 288px ); }
+#carousel figure:nth-child(5) { transform: rotateY( 160deg ) translateZ( 288px ); }
+#carousel figure:nth-child(6) { transform: rotateY( 200deg ) translateZ( 288px ); }
+#carousel figure:nth-child(7) { transform: rotateY( 240deg ) translateZ( 288px ); }
+#carousel figure:nth-child(8) { transform: rotateY( 280deg ) translateZ( 288px ); }
+#carousel figure:nth-child(9) { transform: rotateY( 320deg ) translateZ( 288px ); }
+
+.buttons{
+  width: 100%;
+  height: 0px;
+  position: absolute;
+  z-index: 99;
+  width: 100%;
+  margin-top: 50px;
+  background-size: cover;
+}
+.buttons #left{
+
+  height: 100px;
+  width: 30px;
+  float: left;
+  background: url(image/buttons-01.png);
+}
+.buttons #right{
+  height: 100px;
+  width: 30px;
+  float: right;
+  background: url(image/buttons-02.png);}
+
+
+.ingredients{
+  position: absolute;
+  top: 210px;
+  height: 80px;
+  width: 100%;
+  z-index: 9;
+}
+
+.ingredients div{
+  float: left;
+  height: 100%;
+  width: 25%;
+}
+
+.ingredients > div .listLeft{display: none;}
+.ingredients > div .listRight{display: none;}
+.ingredients > div .center div{display: none;}
+.ingredients > div .center img{
+  height: 74px;
+  width: 74px;
+  border: 3px solid rgba(0,0,0,0.25);
+}
+
+.instructions {
+background-image: url(image/recipe-08.png);/*:rgba(0,0,0,0.5);*/
+position:absolute;
+top:0;
+height: 210px;
+width: 100%;
+display: none;
+z-index: 100;
+color: white;
+text-align: center;
+
+}
+
+#addButton{
+  width: 160px;
+  height: 30px;
+  display: none;
+  border-radius: 15px;
+  position: absolute;
+  text-align: center;
+  line-height: 30px;
+  top: 150px;
+  z-index: 101;
+  margin: 0 80px;
+  border: 2px solid white;
+  color: white;
+  cursor:pointer;
+}
+
+
+
+.shopList{
+	width: 320px;
+	margin: 0;
+}
+
+.item{
+  height: 80px;
+  width: 620px;
+  margin-top: 1px;
+  position: relative;
+  left: -150px;
+  -webkit-transition: all ease-out 0.4s;
+  transition: all ease-out 0.4s;
+  background: white;
+  -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.2);
+       -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.2);
+            box-shadow: 0 1px 1px rgba(0,0,0,0.2);
+
+}
+.item .center img{
+  height: 80px;
+  width: 80px;
+  
+  
+}
+
+.shopList .item .listLeft{
+  background: #1b75bb;
+  height: 100%;
+  width: 150px;
+  line-height: 150px;
+  text-align:center;
+  color:white;
+}
+.shopList .item .listRight{
+  background: red;
+  height:100%;
+  width: 150px;
+  line-height: 150px;
+  text-align:center;
+  color:white;
+}
+.shopList .item .center{
+	width: 320px;
+  height: 100%;
+}
+.shopList .item > div{
+	float: left;
+}
+.shopList .item .center img{
+	float: left;
+  height: 100%;
+}
+.shopList .item .center .tagText{
+	float: left;
+}
+.shopList .item .center .tagText h1{
+	font-size: 18px;
+	margin: 20px 0 0 30px;
+}
+.shopList .item .center .tagText p{
+	font-size: 12px;
+	margin: 0px 0 0 30px;
+}
+
+#itemTemplate {
+  display: none;
+}
+

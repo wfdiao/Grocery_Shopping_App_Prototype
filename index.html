@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="index.css">
+		<link href="index.css">
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>		
+	</head>
+	<body>
+		<div class="app">
+			<header>
+				<img src="image/top.png">
+				<h1>Recommeded Recipes</h1>
+			</header>
+			<div class="content">
+				<div class="carouselContainer">
+					<!--a carousel of 9 recipes 
+						didn't use back in this code
+						reference code: 
+						http://desandro.github.io/3dtransforms/docs/carousel.html
+						Intro to CSS 3D transforms by David DeSandro
+						licensed CC-BY. All example code licensed MIT.
+					-->
+					<div id="carousel">
+						<figure>
+							<div class="back"></div>
+							<div class="front"></div>		
+						</figure>
+						<figure>
+							<div class="back"></div>
+							<div class="front"></div>		
+						</figure>
+						<figure>
+							<div class="back"></div>
+							<div class="front"></div>		
+						</figure>
+						<figure>
+							<div class="back"></div>
+							<div class="front"></div>		
+						</figure>
+						<figure>
+							<div class="back"></div>
+							<div class="front"></div>		
+						</figure>
+						<figure>
+							<div class="back"></div>
+							<div class="front"></div>		
+						</figure>
+						<figure>
+							<div class="back"></div>
+							<div class="front"></div>		
+						</figure>
+						<figure>
+							<div class="back"></div>
+							<div class="front"></div>		
+						</figure>
+						<figure>
+							<div class="back"></div>
+							<div class="front"></div>		
+						</figure>
+					</div>
+
+					<div class="buttons">
+						<div id="left"></div>
+						<div id="right"></div>
+					</div>
+
+					<div class="ingredients">
+						<div id="igd1">
+							<!--Here list left and right is for check/delete list items.
+							Haven't add this function yet. Will add this interaction later
+							-->
+							<div class="listLeft">
+								Check
+							</div>
+
+							<div class="center">
+								<img src="image/ingreds-01.jpg">
+								<div class="tagText">
+									<h1> Top Round Steak</h1>
+									<p> 1 lb.</p>
+								</div>	
+							</div>
+
+							<div class="listRight">
+								Delete
+							</div>
+						</div>
+
+						<div id="igd2">
+							<div class="listLeft">
+								Check
+							</div>
+
+							<div class="center">
+								<img src="image/ingreds-03.jpg">
+								<div class="tagText">
+								<h1>Russet Potatoes
+								</h1>
+								<p> 1 lb.</p>
+								</div>	
+							</div>
+
+							<div class="listRight">
+								Delete
+							</div>
+						</div>
+
+						<div id="igd3">
+							<div class="listLeft">
+								Check
+							</div>
+
+							<div class="center">
+								<img src="image/ingreds-02.png">
+								<div class="tagText">
+								<h1>Red Bell Peppers
+								</h1>
+								<p> 1/2 Pound</p>
+								</div>	
+							</div>
+
+							<div class="listRight">
+								Delete
+							</div>
+						</div>
+
+						<div id="igd4">
+							<div class="listLeft">
+								Check
+							</div>
+
+							<div class="center">
+								<img src="image/ingreds-04.png">
+								<div class="tagText">
+								<h1> Purple Onions
+								</h1>
+								<p> 1/2 lb.</p>
+								</div>	
+							</div>
+
+							<div class="listRight">
+								Delete
+							</div>
+						</div>
+					</div>
+
+					<div id="addButton">
+						Add To List
+					</div>
+
+					<div class="instructions">
+					</div>
+				</div>
+
+				<div class="shopListContainer">		
+				<h1>Shopping List</h1>
+				<div class="shopList">
+
+
+					<div class="item">
+						<div class="listLeft">
+							Check
+						</div>
+
+						<div class="center">
+							<img src="image/egg.jpg">
+							<div class="tagText">
+							<h1> Brown Eggs
+							</h1>
+							<p> 1 Dozen</p>
+							</div>	
+						</div>
+
+						<div class="listRight">
+							Delete
+						</div>
+					</div>
+					<div class="item">
+						<div class="listLeft">
+							Check
+						</div>
+
+						<div class="center">
+							<img src="image/listItem-01.jpg">
+							<div class="tagText">
+							<h1> Whole Milk
+							</h1>
+							<p> 1 L</p>
+							</div>	
+						</div>
+
+						<div class="listRight">
+							Delete
+						</div>
+					</div>
+
+				</div>	
+				</div>	
+
+			</div>		
+
+		 </div>
+		
+
+
+	<script>
+		$(function (){
+			var rotatedAngle = 0,			//carousel's current angle
+				incrementAngle = 360 / 9,	//Here 9 is 9 recipes in this demo
+				carouselStatus = 0;			//0 is far status, 1 is near status
+
+			function rotateRight() {
+				rotatedAngle += incrementAngle;
+				$('#carousel').css('transform', 'translateZ(-288px) rotateY(' + rotatedAngle + 'deg)');//'rotateY(30deg)'
+			}
+
+			function rotateLeft() {
+				rotatedAngle -= incrementAngle;
+				$('#carousel').css('transform', 'translateZ(-288px) rotateY(' + rotatedAngle + 'deg)');
+			}
+
+			function goNear() {
+				$('#carousel ').css('transform', 'translateZ(288px) translateY(50px) rotateY(' + rotatedAngle + 'deg)')
+				$('.carouselContainer').css('height', 290);
+				$('.buttons').hide();
+				$('.instructions, #addButton').show();
+				carouselStatus = 1;
+			}
+			function goFar() {
+				$('#carousel').css('transform', 'translateZ(-288px) rotateY(' + rotatedAngle + 'deg)');
+				$('.carouselContainer').css('height', 210);
+				$('.buttons').show();
+				$('.instructions, #addButton').hide();
+				carouselStatus = 0;
+			}
+			/*here is add new items from recipe to list: clone a item from "ingredents" and add them to "shopList"; Have an Animation from height 0 to 80;(How to control animation time here?)*/
+
+			function addToList(){
+				goFar();
+				$('#igd1').clone().css("height", 0).attr('class', 'item').attr('id', null).prependTo($('.shopList')).animate({'height': 80});
+				$('#igd2').clone().css("height", 0).attr('class', 'item').attr('id', null).prependTo($('.shopList')).animate({'height': 80});
+				$('#igd3').clone().css("height", 0).attr('class', 'item').attr('id', null).prependTo($('.shopList')).animate({'height': 80});
+				$('#igd4').clone().css("height", 0).attr('class', 'item').attr('id', null).prependTo($('.shopList')).animate({'height': 80});
+			}
+			//window.addToList = addToList;//for testing
+			
+			$('#carousel figure, .instructions').on('click', function(e){ 
+				if(carouselStatus){
+					goFar();
+				}else{
+					goNear();
+				}
+				
+			})
+			//turn the carousel 
+			$('#left').on('click', function(e){rotateLeft();})
+			$('#right').on('click', function(e){rotateRight();})
+			//Add items to list
+			$('#addButton').on('click', function(e){addToList();})
+			
+
+			//window.rotateRight = rotateRight;
+
+		})
+
+	</script>
+	</body>
+</html>
